@@ -19,11 +19,18 @@ def main():
 
 
 def 全部資料():
-    for sooji in range(11, 100):
-        漢字 = 台語數字().轉數量(sooji)
+    for 漢字 in 全部漢字():
         羅馬字 = 產生羅馬字(漢字)
         yield 漢字, 羅馬字
 
+def 全部漢字():
+    for sooji in range(11, 100):
+        漢字 = 台語數字().轉數量(sooji)
+        yield 漢字
+    
+    for sooji in range(100, 1000, 100):
+        漢字 = 台語數字().轉數量(sooji)
+        yield 漢字
 
 def 產生羅馬字(漢字):
     return 整理羅馬字(tàuphahjī(漢字)['多元書寫'][0]['臺羅斷詞'])
