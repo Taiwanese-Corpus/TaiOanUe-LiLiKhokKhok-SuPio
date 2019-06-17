@@ -22,8 +22,16 @@ def main():
 def 全部資料():
     for sooji in range(11, 100):
         漢字 = 台語數字().轉數量(sooji)
-        羅馬字 = tàuphahjī(漢字)['多元書寫'][0]['臺羅斷詞']
+        羅馬字 = 產生羅馬字(漢字)
         yield 漢字, 羅馬字
+
+
+def 產生羅馬字(漢字):
+    return 整理羅馬字(tàuphahjī(漢字)['多元書寫'][0]['臺羅斷詞'])
+
+
+def 整理羅馬字(羅馬字):
+    return 羅馬字
 
 
 if __name__ == '__main__':

@@ -8,3 +8,6 @@ pip install Tau-Phah-Ji-Command
 ```
 python 數字.py
 ```
+```
+python -m unittest
+```
