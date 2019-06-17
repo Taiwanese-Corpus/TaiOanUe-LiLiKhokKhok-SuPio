@@ -5,22 +5,25 @@ from tauphahji_cmd import tàuphahjī
 
 
 def main():
-#     a = []
-#     print(a)
-    
+    #     a = []
+    #     print(a)
+
     with open('sooji.csv', 'w') as csvfile:
         fieldnames = ['漢字', '羅馬字']
         writer = DictWriter(csvfile, fieldnames=fieldnames)
-    
+
         writer.writeheader()
-        
-        for sooji in range(11, 100):
-            漢字=台語數字().轉數量(sooji)
-            羅馬字=tàuphahjī(漢字)['多元書寫'][0]['臺羅斷詞']
+        for 漢字, 羅馬字 in 全部資料():
             writer.writerow({'漢字': 漢字, '羅馬字': 羅馬字})
         writer.writerow({'漢字': 'Lovely', '羅馬字': 'Spam'})
         writer.writerow({'漢字': 'Wonderful', '羅馬字': 'Spam'})
 
+
+def 全部資料():
+    for sooji in range(11, 100):
+        漢字 = 台語數字().轉數量(sooji)
+        羅馬字 = tàuphahjī(漢字)['多元書寫'][0]['臺羅斷詞']
+        yield 漢字, 羅馬字
 
 
 if __name__ == '__main__':
