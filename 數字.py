@@ -15,8 +15,7 @@ def main():
         writer.writeheader()
         for 漢字, 羅馬字 in 全部資料():
             writer.writerow({'漢字': 漢字, '羅馬字': 羅馬字})
-        writer.writerow({'漢字': 'Lovely', '羅馬字': 'Spam'})
-        writer.writerow({'漢字': 'Wonderful', '羅馬字': 'Spam'})
+        
 
 
 def 全部資料():
@@ -31,6 +30,8 @@ def 產生羅馬字(漢字):
 
 
 def 整理羅馬字(羅馬字):
+    羅馬字.replace(' ', '-')
+    羅馬字.lower()
     return 羅馬字
 
 
