@@ -15,7 +15,6 @@ def main():
         writer.writeheader()
         for 漢字, 羅馬字 in 全部資料():
             writer.writerow({'漢字': 漢字, '羅馬字': 羅馬字})
-        
 
 
 def 全部資料():
@@ -23,14 +22,28 @@ def 全部資料():
         羅馬字 = 產生羅馬字(漢字)
         yield 漢字, 羅馬字
 
+
 def 全部漢字():
+    for sooji in 產生sooji():
+        漢字 = 台語數字().轉數量(sooji)
+        序數 = '第' + 漢字
+        yield 漢字
+        yield 序數
+
+
+def 產生sooji():
     for sooji in range(11, 100):
-        漢字 = 台語數字().轉數量(sooji)
-        yield 漢字
-    
+        yield sooji
     for sooji in range(100, 1000, 100):
-        漢字 = 台語數字().轉數量(sooji)
-        yield 漢字
+        yield sooji
+    for sooji in range(1000, 10000, 1000):
+        yield sooji
+
+
+def 產生序數(漢字):
+    序數 = '第' + 漢字
+    return 序數
+
 
 def 產生羅馬字(漢字):
     return 整理羅馬字(tàuphahjī(漢字)['多元書寫'][0]['臺羅斷詞'])
