@@ -1,6 +1,6 @@
 from unittest.case import TestCase
 from 數字 import 全部漢字
-
+from 數字 import 全部資料
 from 數字 import 整理羅馬字
 
 
@@ -17,7 +17,7 @@ class sooji_format(TestCase):
     def test_無應該連的(self):
         self.assertNotIn('九千八百', 全部漢字())    
 
-
+        
 class 試數字敢有出現(TestCase):
     def test_99以下(self):
         self.assertIn('三十三', 全部漢字())
@@ -42,3 +42,11 @@ class 試數字敢有出現(TestCase):
 
     def test_兆(self):
         self.assertIn('八兆', 全部漢字())  
+        
+    def test_省一kah單位(self):
+        self.assertIn('千三', 全部漢字())  
+        
+    def test_數字_外幾(self):
+        self.assertIn('十外', 全部漢字())  
+        
+        
