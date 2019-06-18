@@ -13,6 +13,9 @@ class sooji_format(TestCase):
 
     def test_第kah數字連字符(self):
         self.assertEqual(整理羅馬字('tē tshit-pah'), 'tē-tshit-pah')
+        
+    def test_無應該連的(self):
+        self.assertNotIn('九千八百', 全部漢字())    
 
 
 class 試數字敢有出現(TestCase):
@@ -33,3 +36,9 @@ class 試數字敢有出現(TestCase):
 
     def test_第kah千(self):
         self.assertIn('第九千', 全部漢字())
+
+    def test_億(self):
+        self.assertIn('兩億', 全部漢字())        
+
+    def test_兆(self):
+        self.assertIn('八兆', 全部漢字())  

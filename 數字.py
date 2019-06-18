@@ -43,6 +43,11 @@ def 產生sooji():
     for sooji in range(10000, 100000, 10000):
         yield sooji
 
+    for sooji in range(100000000, 1000000000, 100000000):  #億
+        yield sooji
+        
+    for sooji in range(1000000000000, 10000000000000, 1000000000000):  #兆
+        yield sooji
 
 def 產生序數(漢字):
     序數 = '第' + 漢字
