@@ -3,7 +3,6 @@ from 數字 import 全部漢字
 from 數字 import 全部資料
 from 數字 import 整理羅馬字
 
-
 class sooji_format(TestCase):
     def test_99以下全小寫(self):
         self.assertEqual(整理羅馬字('Tsa̍p-it'), 'tsa̍p-it')
@@ -16,7 +15,9 @@ class sooji_format(TestCase):
         
     def test_無應該連的(self):
         self.assertNotIn('九千八百', 全部漢字())    
-
+    
+    def test_讀音(self):
+        self.assertEqual(整理羅馬字('tshing-tsi̍t'), 'tshing-it')
         
 class 試數字敢有出現(TestCase):
     def test_99以下(self):
