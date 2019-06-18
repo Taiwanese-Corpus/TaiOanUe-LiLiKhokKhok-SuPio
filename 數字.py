@@ -5,8 +5,6 @@ from tauphahji_cmd import tàuphahjī
 
 
 def main():
-    #     a = []
-    #     print(a)
 
     with open('sooji.csv', 'w') as csvfile:
         fieldnames = ['漢字', '羅馬字']
@@ -15,7 +13,8 @@ def main():
         writer.writeheader()
         for 漢字, 羅馬字 in 全部資料():
             writer.writerow({'漢字': 漢字, '羅馬字': 羅馬字})
-
+    
+    print (台語數字().轉數量(30000))
 
 def 全部資料():
     for 漢字 in 全部漢字():
@@ -28,15 +27,20 @@ def 全部漢字():
         漢字 = 台語數字().轉數量(sooji)
         序數 = '第' + 漢字
         yield 漢字
-        yield 序數
+        yield 序數 
 
 
 def 產生sooji():
     for sooji in range(11, 100):
         yield sooji
+        
     for sooji in range(100, 1000, 100):
         yield sooji
+        
     for sooji in range(1000, 10000, 1000):
+        yield sooji
+        
+    for sooji in range(10000, 100000, 10000):
         yield sooji
 
 
