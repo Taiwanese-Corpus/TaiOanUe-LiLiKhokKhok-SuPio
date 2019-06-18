@@ -71,6 +71,7 @@ def 整理羅馬字(羅馬字):
     羅馬字 = 羅馬字.lower()
     if 羅馬字.endswith('tsi̍t'):
             羅馬字 = 羅馬字.replace('tsi̍t', 'it')
+    羅馬字 = 羅馬字.replace('tshian', 'tshing')
     return 羅馬字
 
 

@@ -2,6 +2,7 @@ from unittest.case import TestCase
 from 數字 import 全部漢字
 from 數字 import 全部資料
 from 數字 import 整理羅馬字
+from 數字 import 產生羅馬字
 
 class sooji_format(TestCase):
     def test_99以下全小寫(self):
@@ -16,8 +17,11 @@ class sooji_format(TestCase):
     def test_無應該連的(self):
         self.assertNotIn('九千八百', 全部漢字())    
     
-    def test_讀音(self):
+    def test_一_讀音(self):
         self.assertEqual(整理羅馬字('tshing-tsi̍t'), 'tshing-it')
+    
+    def test_千_讀音(self):
+        self.assertEqual(產生羅馬字('千幾'), 'tshing-kuí')    
         
 class 試數字敢有出現(TestCase):
     def test_99以下(self):
