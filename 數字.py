@@ -7,18 +7,18 @@ from tauphahji_cmd import tàuphahjī
 def main():
 
     with open('sooji.csv', 'w') as csvfile:
-        fieldnames = ['漢字', '羅馬字']
+        fieldnames = ['漢字', '羅馬字', 'A-la-pik']
         writer = DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
-        for 漢字, 羅馬字 in 全部資料():
-            writer.writerow({'漢字': 漢字, '羅馬字': 羅馬字})
+        for 漢字, 羅馬字, alapik in 全部資料():
+            writer.writerow({'漢字': 漢字, '羅馬字': 羅馬字, 'A-la-pik': alapik})
     
     
 def 全部資料():
-    for 漢字 in 全部漢字():
+    for 漢字, alapik in 全部漢字():
         羅馬字 = 產生羅馬字(漢字)
-        yield 漢字, 羅馬字
+        yield 漢字, 羅馬字, alapik
 
 數字單位 = {'十', '百', '千', '萬'}
 不定數詞 = '外幾捅'
@@ -27,16 +27,16 @@ def 全部資料():
 def 全部漢字():
     for sooji in 產生sooji():
         漢字 = 台語數字().轉數量(sooji)
+        yield 漢字, sooji
         序數 = '第' + 漢字
-        yield 漢字
-        yield 序數 
+        yield 序數, ''
     
     for 單位 in 數字單位:
         for 字 in 不定數詞 + 小數字:
             漢字 = 單位 + 字
-            yield 漢字
+            yield 漢字, ''
         漢字 = '幾' + 單位
-        yield 漢字
+        yield 漢字, ''
         
 def 產生sooji():
     for sooji in range(20, 100):
